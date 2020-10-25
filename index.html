@@ -7,8 +7,7 @@ THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
  
  
 Authors in chronological order of contribution:
-Arthur Williamson 
-Arw3595
+Marley Messer
  
 Further Information:
 http://diystream.cns.utexas.edu/
@@ -17,10 +16,10 @@ Timothy Riedel
 triedel@utexas.edu
  
 Brief Description of Goal of Code:
-The goal of this code is to test whether or not the user has strep throat or lime disease. 
+The goal of this code is to use the PHQ 9 to test if a user has depression.
  
 Known Issues:
-blah, blah, blah, blah
+
 -->
 
    <head> 
@@ -29,7 +28,7 @@ blah, blah, blah, blah
 	
    <head> 
      
-	   <title>Hello World</title>  
+	   <title>Do you have depression?</title>  
     
 	   <meta name="viewport" content="width=device-width, initial-scale=1">
     
@@ -57,48 +56,43 @@ blah, blah, blah, blah
 
 <script>
        
-	var corona_count = 0;//defines the function and represents corona count
+	var Not_at_all = 0;//defines the function and represents the score 0
         
-	var cold_count = 0;//defines the function and represents cold disease count
+	var several_days = 0;//defines the function and represents the score 1
 	
-	var flu_count = 0;//defines the function and represents flu disease count
+	var more_than_half = 0;//defines the function and represents the score 2
 	
-	var allergy_count = 0;//defines the function and represents allergy disease count
+	var nearly_every = 0;//defines the function and represents the score 3
 
 
-        function coronaAdd(){
+        function notatallAdd(){
             
-		corona_count = corona_count + 1;//adds one to the corona count
+		Not_at_all = Not_at_all + 0;//adds nothing to the score
 		//alert(allergy_count);
 
         }
 
-        function coldAdd(){
+        function severalAdd(){
            
-		cold_count = cold_count + 1;//adds one to the cold count 
+		several_days = several_days + 1;//adds one to the score 
         }
 	
-	function fluAdd(){
+	function moreAdd(){
            
-		flu_count = flu_count + 1;//adds one to the flu count 
+		more_than_half = more_than_half + 2;//adds two to the score
         }
 	
-	function allergyAdd(){
+	function everyAdd(){
            
-		allergy_count = allergy_count + 1;//adds one to the allergy count 
+		nearly_every = nearly_every + 3;//adds three to the score
         }
 
 	function getResults() {  
 		
 		var resultsHTML = document.getElementById("results");
 		
-		var coronaProb = corona_count/(corona_count+cold_count+flu_count+allergy_count);//finds the percentage of corona 
-		
-		var coldProb = cold_count/(corona_count+cold_count+flu_count+allergy_count);//finds the percentage of cold disease  
-		
-		var fluProb = flu_count/(corona_count+cold_count+flu_count+allergy_count);//finds the percentage of flu disease  
-
-		var allergyProb = allergy_count/(corona_count+cold_count+flu_count+allergy_count);//finds the percentage of allergy disease  
+		var depressionProb = Not_at_all + several_days + more_than_half + nearly_every;//finds the raw depression score
+		  
 
 		
 resultsHTML.innerHTML = "Corona Probability: "+coronaProb+"<br>Cold Probability: "+coldProb+"<br>Flu Probability: "+fluProb+"<br>Allergy Probability: "+allergyProb;
