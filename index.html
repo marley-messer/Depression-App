@@ -1,0 +1,710 @@
+<!DOCTYPE html> 
+
+<html> 
+<!-- The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only.  Any user of this code does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.
+ 
+THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
+ 
+ 
+Authors in chronological order of contribution:
+Arthur Williamson 
+Arw3595
+ 
+Further Information:
+http://diystream.cns.utexas.edu/
+Research Educator:
+Timothy Riedel
+triedel@utexas.edu
+ 
+Brief Description of Goal of Code:
+The goal of this code is to test whether or not the user has strep throat or lime disease. 
+ 
+Known Issues:
+blah, blah, blah, blah
+-->
+
+   <head> 
+      
+	  
+	
+   <head> 
+     
+	   <title>Hello World</title>  
+    
+	   <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+	   <meta name="apple-mobile-web-app-capable" content="yes">
+    
+	   <link rel="stylesheet" href="w3.css">
+   
+	   <link rel="stylesheet" href="w3-colors-flat.css">
+  
+	   </head> 
+<script>
+	   
+// The following code lets you know when the file was last modified.
+// This will help you know if you are looking at the new version of the file or if there is a delay on GitHub.
+       
+	var docMod = document.lastModified;
+       
+	alert("This file last modified  " + docMod);
+       
+	console.log("This file last modified  " + docMod);
+	
+//If you find the alert box annoying, comment out that line and timestamp will still show up in the debugging console
+
+</script>
+
+<script>
+       
+	var corona_count = 0;//defines the function and represents corona count
+        
+	var cold_count = 0;//defines the function and represents cold disease count
+	
+	var flu_count = 0;//defines the function and represents flu disease count
+	
+	var allergy_count = 0;//defines the function and represents allergy disease count
+
+
+        function coronaAdd(){
+            
+		corona_count = corona_count + 1;//adds one to the corona count
+		//alert(allergy_count);
+
+        }
+
+        function coldAdd(){
+           
+		cold_count = cold_count + 1;//adds one to the cold count 
+        }
+	
+	function fluAdd(){
+           
+		flu_count = flu_count + 1;//adds one to the flu count 
+        }
+	
+	function allergyAdd(){
+           
+		allergy_count = allergy_count + 1;//adds one to the allergy count 
+        }
+
+	function getResults() {  
+		
+		var resultsHTML = document.getElementById("results");
+		
+		var coronaProb = corona_count/(corona_count+cold_count+flu_count+allergy_count);//finds the percentage of corona 
+		
+		var coldProb = cold_count/(corona_count+cold_count+flu_count+allergy_count);//finds the percentage of cold disease  
+		
+		var fluProb = flu_count/(corona_count+cold_count+flu_count+allergy_count);//finds the percentage of flu disease  
+
+		var allergyProb = allergy_count/(corona_count+cold_count+flu_count+allergy_count);//finds the percentage of allergy disease  
+
+		
+resultsHTML.innerHTML = "Corona Probability: "+coronaProb+"<br>Cold Probability: "+coldProb+"<br>Flu Probability: "+fluProb+"<br>Allergy Probability: "+allergyProb;
+	
+	} //This function sets up the equation to get the results. It also defines the variable (getresults) which equals the equation.
+	
+  </script>
+		
+	
+	   
+		
+	   
+  <script>
+	function rectangle() {
+		var c = document.getElementById ("bc"); 
+		var ctx = c.getContext("2d");
+		ctx.moveTo(10,240);
+		ctx.lineTo(10,10);
+		//this code draws the left line
+		ctx.moveTo(10,10);
+		ctx.lineTo(340,10);
+		//this code draws the top line
+		ctx.moveTo(340,10);
+		ctx.lineTo(340,240);
+		//this code draws the right line
+		ctx.moveTo(340,240);
+		ctx.lineTo(10,240);
+		//this code draws the bottom line
+		ctx.stroke();
+		//comes together to draw a rectangle
+	}
+
+	function text() {
+		var bc = document.getElementById ("bc"); 
+		var bc_context = bc.getContext ("2d"); 
+		bc_context.font = '30px Arial' ;
+		bc_context.textBaseLine = 'bottom'; 
+		bc_context.fillText ('Arthur Williamson' ,60,140);
+		//writes my name 
+	} 
+
+
+	function image() {
+		var c= document.getElementById ("bc"); 
+		var ctx=c.getContext ("2d"); 
+		var img= document.getElementById("virus"); 
+		ctx.drawImage (img,10,10,330,230);
+		//puts an image 
+	} 
+
+
+	function clear_canvas() {
+		var bc = document.getElementById ("bc"); 
+		var bc_context = bc.getContext ("2d"); 
+		bc_context.clearRect(1, 1, 350, 250); 
+		//clears the canvas 
+	} 
+</script>
+
+
+<style>	
+img, object{
+      	max-height:90%;
+        	max-width:90%;  /* changes the size of the picture based on the screen */
+        	}
+
+	
+.body {
+     margin: 0em;
+}
+
+.page {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -100vw;
+    overflow-y: auto;
+    z-index: 0;
+    background-color: hsl(0,0%,100%);
+}
+
+  .page:target {
+    left: 0vw;
+    z-index: 1;
+}
+</style>
+	
+	   		<!--Title page-->
+
+<body>
+
+<div id="header" class="w3-container w3-flat-carrot">
+	
+	<h1>Feeling Sick?</h1> <!--title for the page-->
+
+</div>
+	
+<div id="content" class="w3-container">
+	
+	
+	<p>Worried if you have Corona Virus? Answer a few short questions to find out!</p>
+	
+	<a href="#one" class="w3-btn w3-blue w3-round"> Go to page two </a> <!--Button that takes you to the first question on the next page. Changed the color to blue.-->
+	
+</div>
+	
+	<html>
+	
+	<head>
+	
+	<style>
+	
+	* {
+  	
+	box-sizing: border-box;
+	
+	}
+
+	.column {
+	
+	float: left;
+	 
+	width: 33.33%;
+	 
+	padding: 5px;
+	
+	}
+
+	/* Clearfix (clear floats) */
+	
+	.row::after {
+  	
+	content: "";
+  	
+	clear: both;
+  	
+	display: table;
+	
+	}
+	
+	</style>
+	
+	</head>
+	
+	<body>
+
+	
+<div class="row">
+ 
+<div class="column">
+    
+	<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTJ5EU3kv47aRjQX3qSAZoUbIHB9rO0Gni8BtulXjaQsOml-kCh&usqp=CAU" 
+	 
+	alt="image" style="width:50%"> <!--Adds a picture and defines the size. Also added alt to show that an image belongs there when its not loading.-->
+
+</div>
+ 
+<div class="column">
+  
+	<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSrqFb4HnbhhHOg_WI7m6AjZJRw5zg9k26nVwkIL4hHWpi0Ihi2&usqp=CAU" 
+	
+	alt="image" style="width:50%"> <!--Adds a picture and defines the size. Also added alt to show that an image belongs there when its not loading.-->
+  
+</div>
+	
+<div class="column">
+    
+	<img src="https://cdn3.vectorstock.com/i/1000x1000/43/37/cold-symptoms-kids-flat-infographic-poster-vector-13654337.jpg" 
+	 
+	alt="image" style="width:50%"> <!--Adds a picture relating to cold and defines the size. Also added alt to show that an image belongs there when its not loading.-->
+
+</div>
+	
+<div class="column">
+    
+	<img src="data:image/jpeg;base64,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" 
+	 
+	alt="image" style="width:50%"> <!--Adds a picture relating to corona and defines the size. Also added alt to show that an image belongs there when its not loading.-->
+
+</div>	
+	
+
+	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
+ 	
+	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
+	
+    
+<div id="content" class="w3-container">
+    	
+</div>
+
+</div> 
+
+		<!--Page 1-->
+
+<div class="page" id="one"> <!--Makes another page -->
+	
+<div class="w3-container w3-flat-carrot">
+		
+	<h1>Question 1</h1><!--Title of the page-->
+	
+</div>
+	
+<div id="content" class="w3-container">
+		
+	<p> How common is your cough?</p> <!--Adds a question to the page.-->
+		
+<div class= "w3-bar">
+			
+	<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#two'">Common in the last 7-25 Days (usually dry)</button> 	
+	<!--Button that represents corona-->
+		
+	<button class="w3-button w3-blue w3-hover-border-color" onclick="coldAdd();location.hash='#two'">Common in less than 14 days</button>
+	<!--Button that represents cold-->
+
+	<button class="w3-button w3-blue w3-hover-border-color" onclick="fluAdd();location.hash='#two'">Common in the last 7-14 days</button>
+	<!--Button that represents flu-->
+
+	<button class="w3-button w3-blue w3-hover-border-color" onclick="allergyAdd();location.hash='#two'">Common in the last Several Weeks</button>
+	<!--Button that represents allergy-->
+
+
+	<div>
+	<center><canvas id="bc" width="350" height="250" style= "border :1px solid #000000;"> <!--this code provides a canavas to add things to-->
+	Your browser does not support the HTML5 canvas tag.</canvas></center> <!--this code provides a message if the code does not work-->
+</div>
+	
+<img id="virus" src="https://cdn.hswstatic.com/gif/corona-virus-3D.jpg" alt="The Scream" width="0" height="0"><!--image-->
+	
+<style>
+		.btn-group .button {
+		  background-color: #4169e1; /* blue */
+		  border: 1px solid white;
+		  color: white;
+		  padding: 15px 32px;/*created size of button*/
+		  text-align: center;/*centers button text*/
+		  text-decoration: none;
+		  display: inline-block;
+		  font-size: 16px;/*font size*/
+		  cursor: pointer;
+		  float: left;/*brings the buttons to the left*/
+		  /*this code serves to give the button its color,border,alignment,size,font size*/
+		}
+
+		.btn-group .button:not(:last-child) {
+		  border-right: none; /* Prevent double borders */
+		}
+
+		.btn-group .button:hover { /*adds hover feature*/
+		  background-color: #0a21cc;/*changes color to dark blue when hovered*/
+		}
+</style>
+	
+	<div class="btn-group">
+		  <button class="button"onclick = "rectangle();return true;" >Rectangle</button> 
+		  <button class="button" onclick = "text();return true;">Name</button>
+		  <button class="button" onclick = "image();return true;">Image</button>
+		<button class="button"onclick = "clear_canvas();return true;">Clear</button>
+		<!--adds 4 buttons to screen-->
+	</div> 
+
+</div> 	
+	
+</div> 
+	
+</div>
+	
+	<!--Page 2-->
+	
+<div class="page" id="two"><!--Makes another page -->
+	
+<div id="header" class="w3-container w3-flat-carrot">
+		
+	<h1>Question 2</h1><!--Title of the page-->
+	
+</div>
+	
+<div id="content" class="w3-container">
+		
+		<p> Have you had shortness of breath in the last 7-25 days?</p> <!--asks question-->
+			
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#three'">Sometimes</button> 
+		<!--Button that represents corona-->
+
+		
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="location.hash='#three'">No</button>
+		
+	
+</div> 
+	
+</div>	
+	
+		<!--Page 3-->
+	
+<div class="page" id="three"> <!--Makes another page -->
+	
+<div id="header" class="w3-container w3-flat-carrot">
+	
+	<h1>Question 3</h1>
+	
+</div>
+	
+<div id="content" class="w3-container">
+		
+		<p>Have you been sneezing recently?</p> <!--asks question-->
+		
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#four'">Not in the last  7-25 days</button> 
+		<!--Button that represents corona-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coldAdd();location.hash='#four'">Pretty often in less than 14 days</button>
+		<!--Button that represents cold-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="fluAdd();location.hash='#four'">Not in the last 7-14 days</button>
+		<!--Button that represents flu-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="allergyAdd();location.hash='#four'">Pretty often in the last several weeks</button>
+		<!--Button that represents allergy-->
+	
+</div> 
+	
+</div>
+
+	<!--Page 4-->
+	
+<div class="page" id="four"> <!--Makes another page -->
+	
+<div id="header" class="w3-container w3-flat-carrot">
+	
+	<h1>Question 4</h1> <!--Changed title to question 4 -->
+	
+</div>
+	
+<div id="content" class="w3-container">
+		
+		<p>How common is your nose runny or stuffy?</p> <!--asks questione-->
+		
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#five'">rare in the last 7-25 days</button><!--corona count--> 
+		<!--Button that represents corona-->
+	
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coldAdd();location.hash='#five'">common within the last 14 days</button><!--cold count--> 
+		<!--Button that represents cold-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="fluAdd();location.hash='#five'"> sometimes in the last 7-14 days</button><!--flu count--> 
+		<!--Button that represents flu-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="allergyAdd();location.hash='#five'">common in the last several weeks</button><!--allergy count--> 
+		<!--Button that represents allergy-->
+	
+</div> 
+	
+</div>
+		
+	<!--Page 5-->
+		
+<div class="page" id="five"> <!--Makes another page -->
+	
+<div id="header" class="w3-container w3-flat-carrot">
+	
+	<h1>Question 5</h1> <!--Changed title to question 5 -->
+	
+</div>
+	
+<div id="content" class="w3-container">
+		
+		<p>Has have you experienced sore throat?</p> <!--asks question-->
+		
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#six'">sometimes in the last 7-25 days</button> 
+		<!--Button that represents corona-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coldAdd();location.hash='#six'">common in less than 14 days</button>
+		<!--Button that represents cold-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="fluAdd();location.hash='#six'">sometimes in the last 7-14 days</button> 
+		<!--Button that represents flu-->
+	
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="allergyAdd();location.hash='#six'">sometimes in the past several weeks (usually mild)</button>
+		<!--Button that represents allergy-->
+	
+</div> 
+	
+</div>
+		
+<!--Page 6-->
+		
+<div class="page" id="six"> <!--Makes another page -->
+	
+<div id="header" class="w3-container w3-flat-carrot">
+	
+	<h1>Question 6</h1> <!--Changed title to question 6 -->
+	
+</div>
+	
+<div id="content" class="w3-container">
+		
+		<p>Have you experienced fever?</p> <!--asks question-->
+		
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#seven'">Often in the last 7-25 days</button> 
+		<!--Button that represents corona-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coldAdd();location.hash='#seven'">short fever period in less than 14 days</button>
+		<!--Button that represents cold-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="fluAdd();location.hash='#seven'">Common in the last 7-14</button> 
+		<!--Button that represents flu-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="allergyAdd();location.hash='#seven'">No</button>
+		<!--Button that represents allergy-->
+	
+</div> 
+	
+</div>
+		
+<!--Page 7-->
+		
+<div class="page" id="seven"> <!--Makes another page -->
+	
+<div id="header" class="w3-container w3-flat-carrot">
+	
+	<h1>Question 7</h1> <!--Changed title to question 7 -->
+	
+</div>
+	
+<div id="content" class="w3-container">
+		
+		<p>Have you felt tired and weak?</p> <!--asks question-->
+		
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#eight'">Sometimes in the last 7-25</button> 
+		<!--Button that represents corona-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coldAdd();location.hash='#eight'">sometimes in the last 14 days</button>
+		<!--Button that represents cold-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="fluAdd();location.hash='#eight'">often in the last 7-14 days</button> 
+		<!--Button that represents flu-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="allergyAdd();location.hash='#eight'">sometimes in the past several weeks</button>
+		<!--Button that represents allergy-->
+	
+</div> 
+	
+</div>
+		
+<!--Page 8-->
+		
+<div class="page" id="eight"> <!--Makes another page -->
+	
+<div id="header" class="w3-container w3-flat-carrot">
+	
+	<h1>Question 8</h1> <!--Changed title to question 8 -->
+	
+</div>
+	
+<div id="content" class="w3-container">
+		
+		<p>Have you experience headaches?</p> <!--asks question-->
+		
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#nine'">Sometimes in the last 7-25 days</button> 
+		<!--Button that represents corona-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coldAdd();location.hash='#nine'">Rarely in the last 14 days</button>
+		<!--Button that represents cold-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="fluAdd();location.hash='#nine'">Common in the last 7-14</button> 
+		<!--Button that represents flu-->
+	
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="allergyAdd();location.hash='#nine'">Sometimes in the past several weeks(related to sinus pain)</button>
+		<!--Button that represents allergy-->
+	
+</div> 
+	
+</div>
+		
+<!--Page 9-->
+		
+<div class="page" id="nine"> <!--Makes another page -->
+	
+<div id="header" class="w3-container w3-flat-carrot">
+	
+	<h1>Question 9</h1> <!--Changed title to question 9 -->
+	
+</div>
+	
+<div id="content" class="w3-container">
+		
+		<p>Have you experienced body aches and pains?</p> <!--asks question-->
+		
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#ten'">Sometimes in the last 7-25 days</button> 
+		<!--Button that represents corona-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coldAdd();location.hash='#ten'">common in the last 14 days</button>
+		<!--Button that represents cold-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="fluAdd();location.hash='#ten'">Common in the last 7-14</button> 
+		<!--Button that represents flu-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="allergyAdd();location.hash='#ten'">No</button>
+		<!--Button that represents allergy-->
+	
+</div> 
+	
+</div>
+		
+<!--Page 10-->
+		
+<div class="page" id="ten"> <!--Makes another page -->
+	
+<div id="header" class="w3-container w3-flat-carrot">
+	
+	<h1>Question 10</h1> <!--Changed title to question 10 -->
+	
+</div>
+	
+<div id="content" class="w3-container">
+		
+		<p>Have you had diarrhea?</p> <!--asks question-->
+		
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#eleven'">Sometimes in the last 7-25 days</button> 
+		<!--Button that represents corona-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="fluAdd();location.hash='#eleven'">(only applies to children)Sometimes in the past 7-14 days</button>
+		<!--Button that represents flu-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="location.hash='#eleven'">No</button> 
+		<!--Button that doesnt add to the probability but still moves you to the next page-->
+	
+		
+</div> 
+	
+</div>
+		
+<!--Page 11-->
+		
+<div class="page" id="eleven"> <!--Makes another page -->
+	
+<div id="header" class="w3-container w3-flat-carrot">
+	
+	<h1>Question 11</h1> <!--Changed title to question 11 -->
+	
+</div>
+	
+<div id="content" class="w3-container">
+		
+		<p>Is your neck stiff or do you have bad breath?</p> <!--changed question to match new website purchase-->
+		
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#twelve'">Bad Breath</button> 
+		<!--Button that represents corona-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="coldAdd();location.hash='#twelve'">Stiff Neck</button>
+		<!--Button that represents cold-->
+
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="fluAdd();location.hash='#twelve'">Bad Breath</button> 
+		<!--Button that represents flu-->
+	
+		<button class="w3-button w3-blue w3-hover-border-color" onclick="allergyAdd();location.hash='#twelve'">Stiff Neck</button>
+		<!--Button that represents allergy-->
+	
+</div> 
+	
+</div>
+
+	<!-- Page 12 (result page) -->
+	
+<div class="page" id="twelve"> <!--Makes another page -->
+	
+<div id="header" class="w3-container w3-flat-carrot"> 
+	
+		<h1>Results</h1> <!--Changed the title of the page to results-->
+</div>
+	
+<div id="content" class="w3-container">
+	
+			<!--<button onclick="myFunction()">Try it</button>
+<p id="demo"></p>
+<script>
+function myFunction() {
+  var greeting;
+  var time = new Date().getHours();
+  if (coronaProb > coldProb+fluProb+allergyProb) {
+    greeting = "you have corona";
+  } else if (coldProb > coronaProb+fluProb+allergyProb) {
+    greeting = "you have a cold";
+  } else if (fluProb > coronaProb+fluProb+coldProb) {
+    greeting = "you have the flu";
+  }else if (allergyProb > coronaProb+coldProb+allergyProb) {
+    greeting = "you have allergies";
+  }
+  document.getElementById("demo").innerHTML = greeting;
+}
+</script>
+	   -->
+	
+	<p>Click to see your results.</p>
+		
+		<button id="results" class="w3-button w3-blue w3-hover-border-color" onclick="getResults();">Get Results</button> <!--This adds a button that says results and displays the results upon click.-->
+			
+</div>
+	
+</div>
+	
+<footer class="w3-bottom w3-container w3-flat-carrot">
+	
+	<p>DIY!</p>
+
+		</footer>
+	   
+   </body>
+
+		</html>
