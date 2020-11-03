@@ -187,14 +187,14 @@ img, object{
 
 <div id="header" class="w3-container w3-flat-carrot">
 	
-	<h1>Feeling Sick?</h1> <!--title for the page-->
+	<h1>Are you feeling depressed?</h1> <!--title for the page-->
 
 </div>
 	
 <div id="content" class="w3-container">
 	
 	
-	<p>Worried if you have Corona Virus? Answer a few short questions to find out!</p>
+	<p>Do you worry that you may be suffering from depression. Take this scientifically validated survey to find a diagnoses.</p>
 	
 	<a href="#one" class="w3-btn w3-blue w3-round"> Go to page two </a> <!--Button that takes you to the first question on the next page. Changed the color to blue.-->
 	
@@ -293,27 +293,27 @@ img, object{
 	
 <div class="w3-container w3-flat-carrot">
 		
-	<h1>Question 1</h1><!--Title of the page-->
+	<h1>Over the last 2 weeks, how often have you been bothered by any of the following problems?</h1><!--Title of the page-->
 	
 </div>
 	
 <div id="content" class="w3-container">
 		
-	<p> How common is your cough?</p> <!--Adds a question to the page.-->
+	<p> Little interest or pleasure in doing things?</p> <!--Adds a question to the page.-->
 		
 <div class= "w3-bar">
 			
-	<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#two'">Common in the last 7-25 Days (usually dry)</button> 	
-	<!--Button that represents corona-->
+	<button class="w3-button w3-blue w3-hover-border-color" onclick="notatallAdd();location.hash='#two'">Not at all</button> 	
+	<!--Button that represents 0 points-->
 		
-	<button class="w3-button w3-blue w3-hover-border-color" onclick="coldAdd();location.hash='#two'">Common in less than 14 days</button>
-	<!--Button that represents cold-->
+	<button class="w3-button w3-blue w3-hover-border-color" onclick="severalAdd();location.hash='#two'">Several days</button>
+	<!--Button that 1 points-->
 
-	<button class="w3-button w3-blue w3-hover-border-color" onclick="fluAdd();location.hash='#two'">Common in the last 7-14 days</button>
-	<!--Button that represents flu-->
+	<button class="w3-button w3-blue w3-hover-border-color" onclick="moreAdd();location.hash='#two'">More than half the day</button>
+	<!--Button that represents 2 points-->
 
-	<button class="w3-button w3-blue w3-hover-border-color" onclick="allergyAdd();location.hash='#two'">Common in the last Several Weeks</button>
-	<!--Button that represents allergy-->
+	<button class="w3-button w3-blue w3-hover-border-color" onclick="everyAdd();location.hash='#two'">Nearly everyday</button>
+	<!--Button that 3 points-->
 
 
 	<div>
@@ -367,16 +367,26 @@ img, object{
 	
 <div id="header" class="w3-container w3-flat-carrot">
 		
-	<h1>Question 2</h1><!--Title of the page-->
+	<h1>Over the last 2 weeks, how often have you been bothered by any of the following problems?</h1><!--Title of the page-->
 	
 </div>
 	
 <div id="content" class="w3-container">
 		
-		<p> Have you had shortness of breath in the last 7-25 days?</p> <!--asks question-->
+		<p>Feeling down, depressed, or hopeless</p> <!--asks question-->
 			
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#three'">Sometimes</button> 
-		<!--Button that represents corona-->
+	<button class="w3-button w3-blue w3-hover-border-color" onclick="notatallAdd();location.hash='#two'">Not at all</button> 	
+	<!--Button that represents 0 points-->
+		
+	<button class="w3-button w3-blue w3-hover-border-color" onclick="severalAdd();location.hash='#two'">Several days</button>
+	<!--Button that 1 points-->
+
+	<button class="w3-button w3-blue w3-hover-border-color" onclick="moreAdd();location.hash='#two'">More than half the day</button>
+	<!--Button that represents 2 points-->
+
+	<button class="w3-button w3-blue w3-hover-border-color" onclick="everyAdd();location.hash='#two'">Nearly everyday</button>
+	<!--Button that 3 points-->
+
 
 		
 		<button class="w3-button w3-blue w3-hover-border-color" onclick="location.hash='#three'">No</button>
