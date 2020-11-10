@@ -1,13 +1,12 @@
 <!DOCTYPE html> 
-
-<html> 
+<html>  
 <!-- The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only.  Any user of this code does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.
  
 THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
- 
- 
 Authors in chronological order of contribution:
-Marley Messer
+Kurt Kroenke
+Arthur Williamson 
+Angela Owe
  
 Further Information:
 http://diystream.cns.utexas.edu/
@@ -16,155 +15,62 @@ Timothy Riedel
 triedel@utexas.edu
  
 Brief Description of Goal of Code:
-The goal of this code is to use the PHQ 9 to test if a user has depression.
+Screen for depression in the individual taking the questionnaire.
  
 Known Issues:
-
--->
-
-   <head> 
-      
-	  
+-->       
 	
-   <head> 
-     
-	   <title>Do you have depression?</title>  
-    
-	   <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-	   <meta name="apple-mobile-web-app-capable" content="yes">
-    
-	   <link rel="stylesheet" href="w3.css">
-   
-	   <link rel="stylesheet" href="w3-colors-flat.css">
-  
-	   </head> 
-<script>
-	   
+<head> 
+   <title>PHQ9</title>  
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="apple-mobile-web-app-capable" content="yes">
+   <link rel="stylesheet" href="w3.css">
+   <link rel="stylesheet" href="w3-colors-flat.css"
+</head> 
+		
+<script>	   
 // The following code lets you know when the file was last modified.
-// This will help you know if you are looking at the new version of the file or if there is a delay on GitHub.
-       
-	var docMod = document.lastModified;
-       
+// This will help you know if you are looking at the new version of the file or if there is a delay on GitHub.      
+	var docMod = document.lastModified;       
 	alert("This file last modified  " + docMod);
-       
-	console.log("This file last modified  " + docMod);
-	
+	console.log("This file last modified  " + docMod);	
 //If you find the alert box annoying, comment out that line and timestamp will still show up in the debugging console
-
 </script>
 
+		
 <script>
-       
-	var Not_at_all = 0;//defines the function and represents the score 0
-        
-	var several_days = 0;//defines the function and represents the score 1
-	
-	var more_than_half = 0;//defines the function and represents the score 2
-	
-	var nearly_every = 0;//defines the function and represents the score 3
-
-
-        function notatallAdd(){
-            
-		Not_at_all = Not_at_all + 0;//adds nothing to the score
-		//alert(allergy_count);
-
+	var not_at_all_count = 0;//defines the function and represents not all day answer choice count
+	var several_days_count = 0;//defines the function and represents several days answer choice count
+	var more_than_half_the_days_count = 0;//defines the function and represents more than half the days answer choice count
+	var nearly_every_day_count = 0;//defines the function and represents nearly every day answer choice count
+        function notAdd(){
+		not_at_all_count = not_at_all_count + 1;//adds one to the not at all answer choice count
         }
-
-        function severalAdd(){
-           
-		several_days = several_days + 1;//adds one to the score 
+        function sevAdd(){  
+		several_days_count = several_days_count + 1;//adds one to the several days answer choice count 
         }
-	
 	function moreAdd(){
-           
-		more_than_half = more_than_half + 2;//adds two to the score
+		more_than_half_the_days_count = more_than_half_the_days_count + 1;//adds one to the more than half the days answer choice count 
         }
-	
-	function everyAdd(){
-           
-		nearly_every = nearly_every + 3;//adds three to the score
+	function nearlyAdd(){  
+		nearly_every_day_count = nearly_every_day_count + 1;//adds one to the nearly every day answer choice count 
         }
-
-	function getResults() {  
-		
+	function getResults() {  	
 		var resultsHTML = document.getElementById("results");
-		
-		var depressionProb = Not_at_all + several_days + more_than_half + nearly_every;//finds the raw depression score
-		
-		  
-
-		
-resultsHTML.innerHTML = "Depression Probability: "+depressionProb+ ";
+		var DepressionSeverity = (not_at_all_count*0)+(several_days_count*1)+(more_than_half_the_days_count*2)+(nearly_every_day_count*3);//finds the severity of depression 
 	
+	resultsHTML.innerHTML = "Depression Severity = " +DepressionSeverity+ "<br>score of 0-4 indicates minimal or none; monitor, may not require treatment<br>score of 5-9 indicates mild; use clinical judgement(symptom duration, functional impairment) to determine necessity of treatment<br>score of 10-14 indicates moderate; use clinical judgement(symptom duration, functional impairment) to determine necessity of treatment<br>score of 15-19 indicates moderately severe; warrants active treatment with psychotherapy, medications, or combination<br>score of 20-27 indicates severe; warrants active tratment with psychotherapy, medicaions, or combination"
 	} //This function sets up the equation to get the results. It also defines the variable (getresults) which equals the equation.
-	
-  </script>
-		
-	
-	   
-		
-	   
-  <script>
-	function rectangle() {
-		var c = document.getElementById ("bc"); 
-		var ctx = c.getContext("2d");
-		ctx.moveTo(10,240);
-		ctx.lineTo(10,10);
-		//this code draws the left line
-		ctx.moveTo(10,10);
-		ctx.lineTo(340,10);
-		//this code draws the top line
-		ctx.moveTo(340,10);
-		ctx.lineTo(340,240);
-		//this code draws the right line
-		ctx.moveTo(340,240);
-		ctx.lineTo(10,240);
-		//this code draws the bottom line
-		ctx.stroke();
-		//comes together to draw a rectangle
-	}
-
-	function text() {
-		var bc = document.getElementById ("bc"); 
-		var bc_context = bc.getContext ("2d"); 
-		bc_context.font = '30px Arial' ;
-		bc_context.textBaseLine = 'bottom'; 
-		bc_context.fillText ('Arthur Williamson' ,60,140);
-		//writes my name 
-	} 
-
-
-	function image() {
-		var c= document.getElementById ("bc"); 
-		var ctx=c.getContext ("2d"); 
-		var img= document.getElementById("virus"); 
-		ctx.drawImage (img,10,10,330,230);
-		//puts an image 
-	} 
-
-
-	function clear_canvas() {
-		var bc = document.getElementById ("bc"); 
-		var bc_context = bc.getContext ("2d"); 
-		bc_context.clearRect(1, 1, 350, 250); 
-		//clears the canvas 
-	} 
-</script>
-
+ </script>
 
 <style>	
 img, object{
       	max-height:90%;
         	max-width:90%;  /* changes the size of the picture based on the screen */
         	}
-
-	
 .body {
      margin: 0em;
 }
-
 .page {
     width: 100vw;
     height: 100vh;
@@ -175,511 +81,278 @@ img, object{
     z-index: 0;
     background-color: hsl(0,0%,100%);
 }
-
   .page:target {
     left: 0vw;
     z-index: 1;
 }
+
+  .btn-group.button {
+    background-color: #4169e1; /* blue */
+    border: 1px solid white;
+    color: white;
+    padding: 15px 32px;/*created size of button*/
+    text-align: center;/*centers button text*/
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;/*font size*/
+    cursor: pointer;
+    float: left;/*brings the buttons to the left*/
+    /*this code serves to give the button its color,border,alignment,size,font size*/
+}
+  .btn-group.button:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+}
+  .btn-group:.button:hover { /*adds hover feature*/
+    background-color: #0a21cc;/*changes color to dark blue when hovered*/
+}
+</style>
 </style>
 	
-	   		<!--Title page-->
-
+<!--Title page-->
 <body>
-
 <div id="header" class="w3-container w3-flat-carrot">
-	
-	<h1>Are you feeling depressed?</h1> <!--title for the page-->
-
-</div>
-	
+	<h1>Patient Health Questionnaire 9</h1> <!--title for the page-->
+</div>	
 <div id="content" class="w3-container">
-	
-	
-	<p>Do you worry that you may be suffering from depression. Take this scientifically validated survey to find a diagnoses.</p>
-	
-	<a href="#one" class="w3-btn w3-blue w3-round"> Go to page two </a> <!--Button that takes you to the first question on the next page. Changed the color to blue.-->
-	
+	<p>Over the last 2 weeks, how often have you been bothered by any of the following problems?</p>
+	<a href="#one" class="w3-btn w3-blue w3-round"> Next </a> <!--Button that takes you to the first question on the next page. Changed the color to blue.-->	
 </div>
-	
 	<html>
-	
 	<head>
-	
 	<style>
-	
-	* {
-  	
+	{
 	box-sizing: border-box;
-	
 	}
-
 	.column {
-	
 	float: left;
-	 
 	width: 33.33%;
-	 
 	padding: 5px;
-	
 	}
-
 	/* Clearfix (clear floats) */
-	
 	.row::after {
-  	
 	content: "";
-  	
 	clear: both;
-  	
 	display: table;
-	
 	}
-	
 	</style>
-	
 	</head>
-	
 	<body>
-
-	
- 
-
+<div class="row">
+<div class="column">
+	<img src="https://cdn-prod.medicalnewstoday.com/content/images/articles/326/326769/an-infographic-showing-the-commons-symptoms-of-depression.jpg" alt="image" style="width:50%"> <!--Adds a picture and defines the size. Also added alt to show that an image belongs there when its not loading.-->	
 </div>	
-	
-
 	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
- 	
 	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
-	
-    
-<div id="content" class="w3-container">
-    	
-</div>
-
-</div> 
-
-		<!--Page 1-->
-
-<div class="page" id="one"> <!--Makes another page -->
-	
-<div class="w3-container w3-flat-carrot">
-		
-	<h1>Over the last 2 weeks, how often have you been bothered by any of the following problems?</h1><!--Title of the page-->
-	
-</div>
-	
-<div id="content" class="w3-container">
-		
-	<p> Little interest or pleasure in doing things?</p> <!--Adds a question to the page.-->
-		
-<div class= "w3-bar">
-			
-	<button class="w3-button w3-blue w3-hover-border-color" onclick="notatallAdd();location.hash='#two'">Not at all</button> 	
-	<!--Button that represents 0 points-->
-		
-	<button class="w3-button w3-blue w3-hover-border-color" onclick="severalAdd();location.hash='#two'">Several days</button>
-	<!--Button that 1 points-->
-
-	<button class="w3-button w3-blue w3-hover-border-color" onclick="moreAdd();location.hash='#two'">More than half the day</button>
-	<!--Button that represents 2 points-->
-
-	<button class="w3-button w3-blue w3-hover-border-color" onclick="everyAdd();location.hash='#two'">Nearly everyday</button>
-	<!--Button that 3 points-->
-
-
-	<div>
-	<center><canvas id="bc" width="350" height="250" style= "border :1px solid #000000;"> <!--this code provides a canavas to add things to-->
-	Your browser does not support the HTML5 canvas tag.</canvas></center> <!--this code provides a message if the code does not work-->
-</div>
-	
-<img id="virus" src="https://cdn.hswstatic.com/gif/corona-virus-3D.jpg" alt="The Scream" width="0" height="0"><!--image-->
-	
-<style>
-		.btn-group .button {
-		  background-color: #4169e1; /* blue */
-		  border: 1px solid white;
-		  color: white;
-		  padding: 15px 32px;/*created size of button*/
-		  text-align: center;/*centers button text*/
-		  text-decoration: none;
-		  display: inline-block;
-		  font-size: 16px;/*font size*/
-		  cursor: pointer;
-		  float: left;/*brings the buttons to the left*/
-		  /*this code serves to give the button its color,border,alignment,size,font size*/
-		}
-
-		.btn-group .button:not(:last-child) {
-		  border-right: none; /* Prevent double borders */
-		}
-
-		.btn-group .button:hover { /*adds hover feature*/
-		  background-color: #0a21cc;/*changes color to dark blue when hovered*/
-		}
-</style>
-	
-	<div class="btn-group">
-		  <button class="button"onclick = "rectangle();return true;" >Rectangle</button> 
-		  <button class="button" onclick = "text();return true;">Name</button>
-		  <button class="button" onclick = "image();return true;">Image</button>
-		<button class="button"onclick = "clear_canvas();return true;">Clear</button>
-		<!--adds 4 buttons to screen-->
-	</div> 
-
+<div id="content" class="w3-container">	
 </div> 	
-	
-</div> 
-	
+		
+<!--Page 1-->
+<div class="page" id="one"> <!--Makes another page -->
+	<div id="header" class="w3-container w3-flat-carrot">	
+		<h1>Question 1</h1><!--Title of the page-->
+	</div>
+	<div id="content" class="w3-container">
+		<p>  Little interest or pleasure in doing things</p> <!--Adds a question to the page.-->
+		<a href="#two" onclick="notAdd();" class="w3-btn w3-blue w3-round">Not at all</a> 	
+		<!--Button that represents not at all-->
+		<a href="#two" onclick="sevdAdd();" class="w3-btn w3-blue w3-round">Several days</a>
+		<!--Button that represents several days-->
+		<a href="#two" onclick="moreAdd();" class="w3-btn w3-blue w3-round">More than half the days</a>
+		<!--Button that represents more than half the days-->
+		<a href="#two" onclick="nearlyAdd();" class="w3-btn w3-blue w3-round">Nearly every day</a>
+		<!--Button that represents nearly every day-->
+	</div>
 </div>
 	
-	<!--Page 2-->
-	
+<!--Page 2-->	
 <div class="page" id="two"><!--Makes another page -->
-	
-<div id="header" class="w3-container w3-flat-carrot">
-		
-	<h1>Over the last 2 weeks, how often have you been bothered by any of the following problems?</h1><!--Title of the page-->
-	
-</div>
-	
-<div id="content" class="w3-container">
-		
-		<p>Feeling down, depressed, or hopeless</p> <!--asks question-->
-			
-	<button class="w3-button w3-blue w3-hover-border-color" onclick="notatallAdd();location.hash='#two'">Not at all</button> 	
-	<!--Button that represents 0 points-->
-		
-	<button class="w3-button w3-blue w3-hover-border-color" onclick="severalAdd();location.hash='#two'">Several days</button>
-	<!--Button that 1 points-->
-
-	<button class="w3-button w3-blue w3-hover-border-color" onclick="moreAdd();location.hash='#two'">More than half the day</button>
-	<!--Button that represents 2 points-->
-
-	<button class="w3-button w3-blue w3-hover-border-color" onclick="everyAdd();location.hash='#two'">Nearly everyday</button>
-	<!--Button that 3 points-->
-
-
-		
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="location.hash='#three'">No</button>
-		
-	
-</div> 
-	
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 2</h1><!--Title of the page-->
+	</div>
+	<div id="content" class="w3-container">
+		<p> Feeling down, depressed, or hopeless</p> <!--asks question-->
+		<a href="#three" onclick="notAdd();" class="w3-btn w3-blue w3-round">Not at all</a> 	
+		<!--Button that represents not at all-->	
+		<a href="#three" onclick="sevdAdd();" class="w3-btn w3-blue w3-round">Several days</a>
+		<!--Button that represents several days-->
+		<a href="#three" onclick="moreAdd();" class="w3-btn w3-blue w3-round">More than half the days</a>
+		<!--Button that represents more than half the days-->
+		<a href="#three" onclick="nearlyAdd();" class="w3-btn w3-blue w3-round">Nearly every day</a>
+		<!--Button that represents nearly every day-->		
+	</div> 
 </div>	
 	
-		<!--Page 3-->
-	
+<!--Page 3-->	
 <div class="page" id="three"> <!--Makes another page -->
-	
-<div id="header" class="w3-container w3-flat-carrot">
-	
-	<h1>Question 3</h1>
-	
-</div>
-	
-<div id="content" class="w3-container">
-		
-		<p>Have you been sneezing recently?</p> <!--asks question-->
-		
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#four'">Not in the last  7-25 days</button> 
-		<!--Button that represents corona-->
-
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="coldAdd();location.hash='#four'">Pretty often in less than 14 days</button>
-		<!--Button that represents cold-->
-
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="fluAdd();location.hash='#four'">Not in the last 7-14 days</button>
-		<!--Button that represents flu-->
-
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="allergyAdd();location.hash='#four'">Pretty often in the last several weeks</button>
-		<!--Button that represents allergy-->
-	
-</div> 
-	
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 3</h1>
+	</div>
+	<div id="content" class="w3-container">	
+		<p>Trouble falling/staying asleep, sleeping too much</p> <!--asks question-->
+		<a href="#four" onclick="notAdd();" class="w3-btn w3-blue w3-round">Not at all</a> 	
+		<!--Button that represents not at all-->
+		<a href="#four" onclick="sevdAdd();" class="w3-btn w3-blue w3-round">Several days</a>
+		<!--Button that represents several days-->
+		<a href="#four" onclick="moreAdd();" class="w3-btn w3-blue w3-round">More than half the days</a>
+		<!--Button that represents more than half the days-->
+		<a href="#four" onclick="nearlyAdd();" class="w3-btn w3-blue w3-round">Nearly every day</a>
+		<!--Button that represents nearly every day-->	
+	</div> 
 </div>
 
-	<!--Page 4-->
-	
+<!--Page 4-->	
 <div class="page" id="four"> <!--Makes another page -->
-	
-<div id="header" class="w3-container w3-flat-carrot">
-	
-	<h1>Question 4</h1> <!--Changed title to question 4 -->
-	
-</div>
-	
-<div id="content" class="w3-container">
-		
-		<p>How common is your nose runny or stuffy?</p> <!--asks questione-->
-		
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#five'">rare in the last 7-25 days</button><!--corona count--> 
-		<!--Button that represents corona-->
-	
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="coldAdd();location.hash='#five'">common within the last 14 days</button><!--cold count--> 
-		<!--Button that represents cold-->
-
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="fluAdd();location.hash='#five'"> sometimes in the last 7-14 days</button><!--flu count--> 
-		<!--Button that represents flu-->
-
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="allergyAdd();location.hash='#five'">common in the last several weeks</button><!--allergy count--> 
-		<!--Button that represents allergy-->
-	
-</div> 
-	
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 4</h1> <!--Changed title to question 4 -->
+	</div>
+	<div id="content" class="w3-container">	
+		<p>Feeling tired or having little energy</p> <!--asks questione-->
+		<a href="#five" onclick="notAdd();" class="w3-btn w3-blue w3-round">Not at all</a> 	
+		<!--Button that represents not at all-->
+		<a href="#five" onclick="sevdAdd();" class="w3-btn w3-blue w3-round">Several days</a>
+		<!--Button that represents several days-->
+		<a href="#five" onclick="moreAdd();" class="w3-btn w3-blue w3-round">More than half the days</a>
+		<!--Button that represents more than half the days-->
+		<a href="#five" onclick="nearlyAdd();" class="w3-btn w3-blue w3-round">Nearly every day</a>
+		<!--Button that represents nearly every day-->	
+	</div> 
 </div>
 		
-	<!--Page 5-->
-		
+<!--Page 5-->		
 <div class="page" id="five"> <!--Makes another page -->
-	
-<div id="header" class="w3-container w3-flat-carrot">
-	
-	<h1>Question 5</h1> <!--Changed title to question 5 -->
-	
-</div>
-	
-<div id="content" class="w3-container">
-		
-		<p>Has have you experienced sore throat?</p> <!--asks question-->
-		
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#six'">sometimes in the last 7-25 days</button> 
-		<!--Button that represents corona-->
-
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="coldAdd();location.hash='#six'">common in less than 14 days</button>
-		<!--Button that represents cold-->
-
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="fluAdd();location.hash='#six'">sometimes in the last 7-14 days</button> 
-		<!--Button that represents flu-->
-	
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="allergyAdd();location.hash='#six'">sometimes in the past several weeks (usually mild)</button>
-		<!--Button that represents allergy-->
-	
-</div> 
-	
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 5</h1> <!--Changed title to question 5 -->
+	</div>
+	<div id="content" class="w3-container">	
+		<p>Poor appetite or overeating</p> <!--asks question-->
+		<a href="#six" onclick="notAdd();" class="w3-btn w3-blue w3-round">Not at all</a> 	
+		<!--Button that represents not at all-->
+		<a href="#six" onclick="sevdAdd();" class="w3-btn w3-blue w3-round">Several days</a>
+		<!--Button that represents several days-->
+		<a href="#six" onclick="moreAdd();" class="w3-btn w3-blue w3-round">More than half the days</a>
+		<!--Button that represents more than half the days-->
+		<a href="#six" onclick="nearlyAdd();" class="w3-btn w3-blue w3-round">Nearly every day</a>
+		<!--Button that represents nearly every day-->	
+	</div> 
 </div>
 		
 <!--Page 6-->
-		
 <div class="page" id="six"> <!--Makes another page -->
-	
-<div id="header" class="w3-container w3-flat-carrot">
-	
-	<h1>Question 6</h1> <!--Changed title to question 6 -->
-	
-</div>
-	
-<div id="content" class="w3-container">
-		
-		<p>Have you experienced fever?</p> <!--asks question-->
-		
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#seven'">Often in the last 7-25 days</button> 
-		<!--Button that represents corona-->
-
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="coldAdd();location.hash='#seven'">short fever period in less than 14 days</button>
-		<!--Button that represents cold-->
-
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="fluAdd();location.hash='#seven'">Common in the last 7-14</button> 
-		<!--Button that represents flu-->
-
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="allergyAdd();location.hash='#seven'">No</button>
-		<!--Button that represents allergy-->
-	
-</div> 
-	
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 6</h1> <!--Changed title to question 6 -->
+	</div>
+	<div id="content" class="w3-container">	
+		<p>Feeling bad about yourself or that you are a failure or have let yourself or your family down</p> <!--asks question-->
+		<a href="#seven" onclick="notAdd();" class="w3-btn w3-blue w3-round">Not at all</a> 	
+		<!--Button that represents not at all-->
+		<a href="#seven" onclick="sevdAdd();" class="w3-btn w3-blue w3-round">Several days</a>
+		<!--Button that represents several days-->
+		<a href="#seven" onclick="moreAdd();" class="w3-btn w3-blue w3-round">More than half the days</a>
+		<!--Button that represents more than half the days-->
+		<a href="#seven" onclick="nearlyAdd();" class="w3-btn w3-blue w3-round">Nearly every day</a>
+		<!--Button that represents nearly every day-->	
+	</div> 
 </div>
 		
-<!--Page 7-->
-		
-<div class="page" id="seven"> <!--Makes another page -->
-	
-<div id="header" class="w3-container w3-flat-carrot">
-	
-	<h1>Question 7</h1> <!--Changed title to question 7 -->
-	
-</div>
-	
-<div id="content" class="w3-container">
-		
-		<p>Have you felt tired and weak?</p> <!--asks question-->
-		
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#eight'">Sometimes in the last 7-25</button> 
-		<!--Button that represents corona-->
-
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="coldAdd();location.hash='#eight'">sometimes in the last 14 days</button>
-		<!--Button that represents cold-->
-
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="fluAdd();location.hash='#eight'">often in the last 7-14 days</button> 
-		<!--Button that represents flu-->
-
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="allergyAdd();location.hash='#eight'">sometimes in the past several weeks</button>
-		<!--Button that represents allergy-->
-	
-</div> 
-	
+<!--Page 7-->		
+<div class="page" id="seven"> <!--Makes another page -->	
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 7</h1> <!--Changed title to question 7 -->
+	</div>
+	<div id="content" class="w3-container">	
+		<p>Trouble concentrating on things, such as reading the newspaper or watching television</p> <!--asks question-->
+		<a href="#eight" onclick="notAdd();" class="w3-btn w3-blue w3-round">Not at all</a> 	
+		<!--Button that represents not at all-->
+		<a href="#eight" onclick="sevdAdd();" class="w3-btn w3-blue w3-round">Several days</a>
+		<!--Button that represents several days-->
+		<a href="#eight" onclick="moreAdd();" class="w3-btn w3-blue w3-round">More than half the days</a>
+		<!--Button that represents more than half the days-->
+		<a href="#eight" onclick="nearlyAdd();" class="w3-btn w3-blue w3-round">Nearly every day</a>
+		<!--Button that represents nearly every day-->	
+	</div> 
 </div>
 		
 <!--Page 8-->
-		
 <div class="page" id="eight"> <!--Makes another page -->
-	
-<div id="header" class="w3-container w3-flat-carrot">
-	
-	<h1>Question 8</h1> <!--Changed title to question 8 -->
-	
-</div>
-	
-<div id="content" class="w3-container">
-		
-		<p>Have you experience headaches?</p> <!--asks question-->
-		
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#nine'">Sometimes in the last 7-25 days</button> 
-		<!--Button that represents corona-->
-
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="coldAdd();location.hash='#nine'">Rarely in the last 14 days</button>
-		<!--Button that represents cold-->
-
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="fluAdd();location.hash='#nine'">Common in the last 7-14</button> 
-		<!--Button that represents flu-->
-	
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="allergyAdd();location.hash='#nine'">Sometimes in the past several weeks(related to sinus pain)</button>
-		<!--Button that represents allergy-->
-	
-</div> 
-	
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 8</h1> <!--Changed title to question 8 -->
+	</div>
+	<div id="content" class="w3-container">	
+		<p>Moving or speaking so slowly that other people could have noticed. Or the opposite; being so fidgety or restless that you have been moving around a lot more than usual</p> <!--asks question-->
+		<a href="#nine" onclick="notAdd();" class="w3-btn w3-blue w3-round">Not at all</a> 	
+		<!--Button that represents not at all-->
+		<a href="#nine" onclick="sevdAdd();" class="w3-btn w3-blue w3-round">Several days</a>
+		<!--Button that represents several days-->
+		<a href="#nine" onclick="moreAdd();" class="w3-btn w3-blue w3-round">More than half the days</a>
+		<!--Button that represents more than half the days-->
+		<a href="#nine" onclick="nearlyAdd();" class="w3-btn w3-blue w3-round">Nearly every day</a>
+		<!--Button that represents nearly every day-->	
+	</div> 
 </div>
 		
-<!--Page 9-->
-		
+<!--Page 9-->	
 <div class="page" id="nine"> <!--Makes another page -->
-	
-<div id="header" class="w3-container w3-flat-carrot">
-	
-	<h1>Question 9</h1> <!--Changed title to question 9 -->
-	
-</div>
-	
-<div id="content" class="w3-container">
-		
-		<p>Have you experienced body aches and pains?</p> <!--asks question-->
-		
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#ten'">Sometimes in the last 7-25 days</button> 
-		<!--Button that represents corona-->
-
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="coldAdd();location.hash='#ten'">common in the last 14 days</button>
-		<!--Button that represents cold-->
-
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="fluAdd();location.hash='#ten'">Common in the last 7-14</button> 
-		<!--Button that represents flu-->
-
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="allergyAdd();location.hash='#ten'">No</button>
-		<!--Button that represents allergy-->
-	
-</div> 
-	
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 9</h1> <!--Changed title to question 9 -->
+	</div>
+	<div id="content" class="w3-container">	
+		<p>Thoughts that you would be better off dead or of hurting yourself in some way</p> <!--asks question-->
+		<p> Disclaimer: Due to ethical guidelines, this question's answers will not be recorded or incorporated into the score. However, this question is left to show the full extent of the Patient Health Questionnaire 9. </p>
+		<a href="#ten" class="w3-btn w3-blue w3-round">Not at all</a> 	
+		<!--Button that represents not at all-->
+		<a href="#ten" class="w3-btn w3-blue w3-round">Several days</a>
+		<!--Button that represents several days-->
+		<a href="#ten" class="w3-btn w3-blue w3-round">More than half the days</a>
+		<!--Button that represents more than half the days-->
+		<a href="#ten" class="w3-btn w3-blue w3-round">Nearly every day</a>
+		<!--Button that represents nearly every day-->	
+	</div> 
 </div>
 		
-<!--Page 10-->
-		
+<!--Page 10-->	
 <div class="page" id="ten"> <!--Makes another page -->
-	
-<div id="header" class="w3-container w3-flat-carrot">
-	
-	<h1>Question 10</h1> <!--Changed title to question 10 -->
-	
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 10</h1> <!--Changed title to question 10 -->
+	</div>
+	<div id="content" class="w3-container">	
+		<p> If you checked off any problem on this questionnaire so far, how difficult have these problems made it for you to do your work, take care of things at home, or get along with other people?</p> <!--asks question-->
+		<a href="#eleven" class="w3-btn w3-blue w3-round">Not at all</a> 	
+		<!--Button that represents not at all-->
+		<a href="#eleven" class="w3-btn w3-blue w3-round">Several days</a>
+		<!--Button that represents several days-->
+		<a href="#eleven" class="w3-btn w3-blue w3-round">More than half the days</a>
+		<!--Button that represents more than half the days-->
+		<a href="#eleven" class="w3-btn w3-blue w3-round">Nearly every day</a>
+		<!--Button that represents nearly every day-->
+	</div> 	
 </div>
-	
-<div id="content" class="w3-container">
-		
-		<p>Have you had diarrhea?</p> <!--asks question-->
-		
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#eleven'">Sometimes in the last 7-25 days</button> 
-		<!--Button that represents corona-->
 
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="fluAdd();location.hash='#eleven'">(only applies to children)Sometimes in the past 7-14 days</button>
-		<!--Button that represents flu-->
-
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="location.hash='#eleven'">No</button> 
-		<!--Button that doesnt add to the probability but still moves you to the next page-->
-	
-		
-</div> 
-	
-</div>
-		
-<!--Page 11-->
-		
+<!-- Page 11 (result ready page) -->	
 <div class="page" id="eleven"> <!--Makes another page -->
-	
-<div id="header" class="w3-container w3-flat-carrot">
-	
-	<h1>Question 11</h1> <!--Changed title to question 11 -->
-	
-</div>
-	
-<div id="content" class="w3-container">
-		
-		<p>Is your neck stiff or do you have bad breath?</p> <!--changed question to match new website purchase-->
-		
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="coronaAdd();location.hash='#twelve'">Bad Breath</button> 
-		<!--Button that represents corona-->
-
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="coldAdd();location.hash='#twelve'">Stiff Neck</button>
-		<!--Button that represents cold-->
-
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="fluAdd();location.hash='#twelve'">Bad Breath</button> 
-		<!--Button that represents flu-->
-	
-		<button class="w3-button w3-blue w3-hover-border-color" onclick="allergyAdd();location.hash='#twelve'">Stiff Neck</button>
-		<!--Button that represents allergy-->
-	
-</div> 
-	
+	<div id="header" class="w3-container w3-flat-carrot"> 
+		<h1>Finished!</h1> <!--Changed the title of the page to results-->
+	</div>
+	<div id="content" class="w3-container">
+		<p>Click to see your results.</p>
+		<a href="#last" class="w3-button w3-blue w3-hover-border-color" onclick="getResults();">Get Results</a> <!--This adds a button that says results and displays the results upon click.-->		
+	</div>
 </div>
 
-	<!-- Page 12 (result page) -->
-	
-<div class="page" id="twelve"> <!--Makes another page -->
-	
-<div id="header" class="w3-container w3-flat-carrot"> 
-	
-		<h1>Results</h1> <!--Changed the title of the page to results-->
-</div>
-	
-<div id="content" class="w3-container">
-	
-			<!--<button onclick="myFunction()">Try it</button>
-<p id="demo"></p>
-<script>
-function myFunction() {
-  var greeting;
-  var time = new Date().getHours();
-  if (coronaProb > coldProb+fluProb+allergyProb) {
-    greeting = "you have corona";
-  } else if (coldProb > coronaProb+fluProb+allergyProb) {
-    greeting = "you have a cold";
-  } else if (fluProb > coronaProb+fluProb+coldProb) {
-    greeting = "you have the flu";
-  }else if (allergyProb > coronaProb+coldProb+allergyProb) {
-    greeting = "you have allergies";
-  }
-  document.getElementById("demo").innerHTML = greeting;
-}
-</script>
-	   -->
-	
-	<p>Click to see your results.</p>
-		
-		<button id="results" class="w3-button w3-blue w3-hover-border-color" onclick="getResults();">Get Results</button> <!--This adds a button that says results and displays the results upon click.-->
-			
-</div>
-	
+<!-- This produces the result page to show the severity -->
+<div class="page" id="last">
+	<!-- This produces the results title -->
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Depression Severity</h1>
+	</div>
+	<!-- This produces the results -->
+	<div id="content" class="w3-container">
+		<p id="results">DepressionSeverity</p> 
+		<p>Be Healthy!</p>
+	</div>
 </div>
 	
 <footer class="w3-bottom w3-container w3-flat-carrot">
-	
 	<p>DIY!</p>
-
-		</footer>
-	   
-   </body>
-
-		</html>
+</footer>
+</body>		
+</html>
